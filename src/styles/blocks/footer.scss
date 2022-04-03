@@ -1,0 +1,43 @@
+.footer__inner {
+    padding-top: 24px;
+    padding-bottom: 37px;
+
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #E5E5E5;
+
+
+    @media screen and (max-width: $breakpoint_l) {
+        padding-bottom: 23px;
+    }
+}
+
+.footer__text {
+    font-size: 0.75em;
+    line-height: 12px;
+    letter-spacing: -0.02em;
+}
+
+.footer__text--line {
+    color: $smokie;
+}
+
+.footer__copyright {
+    padding-top: 5px;
+
+    color: $smokie;
+
+    font-size:  0.75em;
+    line-height: 12px;
+    letter-spacing: -0.02em;
+}
+
+.footer__social {
+    color: $smokie;
+}
+
+.footer__img {
+	path {
+		fill: $smokie;
+	}
+}
