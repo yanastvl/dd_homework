@@ -1,5 +1,6 @@
 import './styles/style.scss';
 
+const projectName = "digital_design_homework"
 const slider = document.querySelector('.main__img');
 const tabs = document.getElementsByClassName('tabs');
 
@@ -15,7 +16,7 @@ function changeSlide(newSlideNumber) {
         currentSlideNumber = newSlideNumber;
     }
 
-    slider.style.backgroundImage = `url(/baner${currentSlideNumber}.webp)`;
+    slider.style.backgroundImage = `url(./baner${currentSlideNumber}.webp)`;
 
     let activeTab = document.querySelector('.tab__active');
     if (activeTab) { activeTab.classList.remove('tab__active'); }
