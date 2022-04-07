@@ -2,6 +2,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 
 module.exports = {
@@ -11,6 +12,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: '[name].[contenthash].js',
+        assetModuleFilename: "[name][ext]",
     },
 
     plugins: [
@@ -18,7 +20,12 @@ module.exports = {
             template: "./index.html"
         }),
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new CopyPlugin({
+            patterns: [
+                { from: "img/banner_images"},
+            ],
+        }),
     ],
     module: {
         rules: [{
@@ -37,7 +44,7 @@ module.exports = {
                       options: {
                           postcssOptions: {
                               plugins: [
-                                  'autoprefixer', 
+                                  'autoprefixer',
                                   'css-mqpacker', 
                                   'cssnano'
                                 ]
@@ -51,12 +58,19 @@ module.exports = {
             },
             {
                 test: /\.(ttf|woff|woff2|eot)$/,
-                use: ['file-loader']
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                          name: '/[name].[ext]',
+                        }
+                    },
+                ]
             },
             {
                 test: /\.(html)$/,
                 use: {
-                    loader: 'html-loader',
+                    loader: 'html-loader'
                 }
             },
 

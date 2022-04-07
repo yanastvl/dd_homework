@@ -21,9 +21,12 @@
 }
 
 .main__img {
+    position: relative;
     max-width: 100%;
     min-height: 445px;
-    background: center no-repeat url(../img/baner.webp);
+    background: url(../img/baner0.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
 
     @media screen and (max-width: $breakpoint_m) {
         min-height: 353px;
@@ -87,6 +90,35 @@
 
 }
 
+.prev,
+.next {
+    display: none;
+
+    @media screen and (max-width: $breakpoint_m) {
+        display: flex;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -50px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 35px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    }
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
 .cards {
     display: flex;
     justify-content: space-between;
@@ -95,7 +127,6 @@
         display: none;
     }
 }
-
 
 .tabs {
     cursor: pointer;
@@ -111,13 +142,12 @@
         min-width: 178px;
         min-height: 35px;
     }
-
 }
 
 .tab__header {
     padding-left: 20px;
     padding-top: 26px;
-    color: $primary;
+    color: inherit;
 
     font-size: 1.125em;
     line-height: 18px;
@@ -141,6 +171,11 @@
         display: none;
     }
 
+}
+
+.tab__active {
+    background-color: #34aca7 !important;
+    color: #ffffff !important;
 }
 
 .subscribe__box {
@@ -382,5 +417,47 @@
     @media screen and (max-width: $breakpoint_xs) {
         font-size: 1em;
         padding-top: 29px;
+    }
+}
+
+.slider {
+    position: relative;
+}
+
+@keyframes animate {
+    0% {
+        left: 0;
+    }
+
+    20% {
+        left: 0;
+    }
+
+    25% {
+        left: -100%;
+    }
+
+    45% {
+        left: -100%;
+    }
+
+    50% {
+        left: -200%;
+    }
+
+    70% {
+        left: -200%;
+    }
+
+    75% {
+        left: -300%;
+    }
+
+    95% {
+        left: -300%;
+    }
+
+    100% {
+        left: -400%;
     }
 }

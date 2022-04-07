@@ -6,25 +6,38 @@
     }
 }
 
+.aside {
+    @media screen and (max-width:$breakpoint_l) {
+        display: flex;
+    }
+
+    @media screen and (max-width: $breakpoint_xs) {
+        display: flex;
+        align-items: inherit;
+        flex-direction: column-reverse;
+    }
+}
+
 .aside__menu {
     display: flex;
     flex-grow: 1;
-}
 
-.menu__list {
-
-    @media screen and (min-width: $breakpoint_m) and (max-width: $breakpoint_l) {
-        display: flex;
-        flex-grow: 1;
-        justify-content: space-around;
+    @media screen and (max-width: $breakpoint_l) {
+        padding: 49px 0px;
     }
 
-    @media screen and (max-width: $breakpoint_m) {
-        display: flex;
-        flex-grow: 1;
-        justify-content: space-between;
+    @media screen and (max-width: $breakpoint_xs) {
+        padding: 32px 19px 0px 19px;
     }
 
+    &--list {
+
+        @media screen and (max-width: $breakpoint_l) {
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-around;
+        }
+    }
 }
 
 .menu__item {
@@ -82,29 +95,6 @@
         max-height: 120px;
     }
 
-}
-
-.aside__menu {
-    @media screen and (max-width: $breakpoint_l) {
-        padding: 49px 0px;
-    }
-
-    @media screen and (max-width: $breakpoint_xs) {
-        padding: 32px 19px 0px 19px;
-    }
-
-}
-
-.sidebar {
-    @media screen and (max-width:$breakpoint_l) {
-        display: flex;
-    }
-
-    @media screen and (max-width: $breakpoint_xs) {
-        display: flex;
-        align-items: inherit;
-        flex-direction: column-reverse;
-    }
 }
 
 .sidebar__inner {
